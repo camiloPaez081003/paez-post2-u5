@@ -42,7 +42,7 @@
             <td>
                 <form method="post" action="carrito">
                     <input type="hidden" name="accion" value="agregar">
-                    <input type="hidden" name="idProducto" value="${p.id}">
+                    <input type="hidden" name="idProducto" value="<c:out value='${p.id}'/>">
                     <button type="submit">Agregar al carrito</button>
                 </form>
             </td>
