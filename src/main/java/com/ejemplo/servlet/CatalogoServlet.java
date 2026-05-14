@@ -23,6 +23,9 @@ public class CatalogoServlet extends HttpServlet {
                 new Producto(5, "Audífonos Sony", "Audio", 180000, 15),
                 new Producto(6, "Webcam HD", "Periféricos", 95000, 12)
         ));
+
+        // 🔹 Guardamos el catálogo en el ServletContext para que otros servlets lo usen
+        getServletContext().setAttribute("catalogo", catalogo);
     }
 
     @Override
@@ -51,5 +54,9 @@ public class CatalogoServlet extends HttpServlet {
 
         req.getRequestDispatcher("/WEB-INF/views/catalogo.jsp").forward(req, resp);
     }
-}
 
+    // 🔹 Método opcional para acceder al catálogo desde otros servlets
+    public List<Producto> getCatalogo() {
+        return catalogo;
+    }
+}
